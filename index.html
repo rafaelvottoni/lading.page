@@ -30,12 +30,16 @@
         </a>
         <div class="menu">
           <ul>
-            <li><a href="#">Sobre</a></li>
-            <li><a href="#">Preços</a></li>
-            <li><a href="#">Recursos</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Login</a></li>
-            <li class="button"><a href="#">Sign Up</a></li>
+            <div class="div-menu">
+              <li><a href="#">Ferramentas</a></li>
+              <li><a href="#">Preços</a></li>
+              <li><a href="#">Recursos</a></li>
+            </div>
+            <div class="div-divider"><li class="divider"></li></div>
+            <div class="div-menu">
+              <li><a href="#">Login</a></li>
+              <li class="button"><a href="#">Sign Up</a></li>
+            </div>
           </ul>
         </div>
         <a href="#" class="toggle"><img src="/assets/menu.svg" alt="Menu" /></a>
@@ -56,24 +60,31 @@
             Amplie o reconhecimento de sua marca e obtenha dados detalhados
             sobre o desempenho de seus links.
           </p>
-          <a href="#link" class="button">Começar</a>
+          <a href="#formShortener" class="button">Começar</a>
         </div>
       </section>
+
       <section id="shortener" class="section">
         <div class="container">
-          <form id="formShortener" action="">
+          <form id="formShortener" name="formShortener" action="">
             <input
               type="text"
               id="link"
               name="link"
-              placeholder="Encurte um link aqui..."
+              placeholder="Digite o link aqui..."
             />
-            <button class="button">Encurte!</button>
+
+            <button class="button" type="submit" form="formShortener">
+              Encurtar
+            </button>
           </form>
 
           <div class="shortened-link">
-            <p>Link original</p>
-            <a href="">Link Encurtado</a>
+            <div class="shortened-links">
+              <p>Link original</p>
+              <a href="">Link Encurtado</a>
+            </div>
+
             <button class="button button-copy">Copiar</button>
           </div>
         </div>
@@ -101,8 +112,8 @@
                 seu conteúdo.
               </p>
             </div>
-            <div class="line"></div>
-            <div class="card">
+
+            <div class="card second-card">
               <img
                 src="./assets/icon-detailed-records.svg"
                 alt="Registros Detalhados"
@@ -114,8 +125,8 @@
                 ajuda a tomar melhor decisões.
               </p>
             </div>
-            <div class="line"></div>
-            <div class="card">
+
+            <div class="card third-card">
               <img
                 src="./assets/icon-fully-customizable.svg"
                 alt="Totalmente personalizável"
@@ -127,6 +138,7 @@
                 público.
               </p>
             </div>
+            <div class="line"></div>
           </div>
         </div>
       </section>
@@ -134,12 +146,13 @@
       <section id="call-to-action" class="section">
         <div class="container">
           <h1>Impulsione seus links hoje</h1>
-          <button class="button">Começar</button>
+          <a href=""><button class="button">Começar</button></a>
         </div>
       </section>
+
       <footer>
         <div class="container">
-          <h1>Shortly</h1>
+          <a href="#"><h1>Shortly</h1></a>
           <div class="links">
             <div class="features">
               <h3>Ferramentas</h3>
