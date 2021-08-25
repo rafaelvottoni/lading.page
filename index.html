@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="assets/favicon-32x32.png"
+      type="image/png"
+    />
+
+    <title>Shortly</title>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="container">
+        <a class="logo" href="#">
+          <img src="./assets/logo.svg" alt="Logo Shortly" />
+        </a>
+        <div class="menu">
+          <ul>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Preços</a></li>
+            <li><a href="#">Recursos</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Login</a></li>
+            <li class="button"><a href="#">Sign Up</a></li>
+          </ul>
+        </div>
+        <a href="#" class="toggle"><img src="/assets/menu.svg" alt="Menu" /></a>
+      </nav>
+    </header>
+    <main>
+      <section id="home" class="section">
+        <div class="image">
+          <img
+            src="./assets/illustration-working.svg"
+            alt="Pessoa Trabalhando"
+          />
+        </div>
+
+        <div class="text container">
+          <h1>Mais do que um encurtador de links</h1>
+          <p>
+            Amplie o reconhecimento de sua marca e obtenha dados detalhados
+            sobre o desempenho de seus links.
+          </p>
+          <a href="#link" class="button">Iniciar</a>
+        </div>
+      </section>
+      <section id="shortener" class="section">
+        <div class="container">
+          <form id="formShortener" action="">
+            <input
+              type="text"
+              id="link"
+              name="link"
+              placeholder="Encurte um link aqui..."
+            />
+            <button class="button">Encurte!</button>
+          </form>
+
+          <div class="shortened-link">
+            <p>Link original</p>
+            <a href="">Link Encurtado</a>
+            <button class="button button-copy">Copiar</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="statistics" class="section">
+        <div class="container">
+          <div class="text">
+            <h1>Estatísticas Avançadas</h1>
+            <p>
+              Acompanhe o desempenho de seus links na web com nosso painel de
+              estatísticas avançadas.
+            </p>
+          </div>
+          <div class="cards">
+            <div class="card">
+              <img
+                src="./assets/icon-brand-recognition.svg"
+                alt="Reconhecimento de marca"
+              />
+              <h1>Reconhecimento de marca</h1>
+              <p>
+                Aumente o reconhecimento da sua marca a cada clique. Não use
+                links genéricos. Links de marca ajudam a inspirar confiança em
+                seu conteúdo.
+              </p>
+            </div>
+            <div class="card">
+              <img
+                src="./assets/icon-detailed-records.svg"
+                alt="Registros Detalhados"
+              />
+              <h1>Registros Detalhados</h1>
+              <p>
+                Obtenha informações sobre quem está clicando em seus links.
+                Saber quando e onde as pessoas se envolvem com seu conteúdo
+                ajuda a tomar melhor decisões.
+              </p>
+            </div>
+            <div class="card">
+              <img
+                src="./assets/icon-fully-customizable.svg"
+                alt="Totalmente personalizável"
+              />
+              <h1>Totalmente personalizável</h1>
+              <p>
+                Melhore o conhecimento da sua marca e a descoberta de conteúdo
+                por meio de links personalizáveis. Aumentando o engajamento do
+                público.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="./scripts/script.js"></script>
+  </body>
+</html>
