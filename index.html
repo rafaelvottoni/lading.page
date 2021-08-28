@@ -68,7 +68,7 @@
 
       <section id="shortener" class="section">
         <div class="container">
-          <form id="formShortener" action="/shortenerlink" method="POST">
+          <form id="formShortener">
             <input
               type="text"
               id="link"
@@ -77,18 +77,9 @@
             />
 
             <button class="button" type="submit">Encurtar</button>
-            <small>O campo é obrigatório!</small>
+            <small class="error-message"></small>
           </form>
-
-          <div class="shortened-link">
-            <div class="shortened-links">
-              <a class="old-link" target="_blank" href="#">Link Resumido... </a>
-
-              <a class="new-link" target="_blank" href="#">Link encurtado </a>
-            </div>
-
-            <button class="button button-copy">Copiar</button>
-          </div>
+          <div class="shortened-link"></div>
         </div>
       </section>
 
