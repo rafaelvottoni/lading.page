@@ -26,6 +26,10 @@ html {
   --container-side: 1.5rem;
 }
 
+.sr-only {
+  display: none;
+}
+
 img {
   width: 100%;
   height: auto;
@@ -205,7 +209,7 @@ nav .menu.show ul > div {
 }
 
 #shortener .container form {
-  background-image: url('../assets/bg-shorten-mobile.svg');
+  background-image: url('../images/bg-shorten-mobile.svg');
   background-repeat: no-repeat;
   background-size: auto;
   background-position: right top;
@@ -217,6 +221,7 @@ nav .menu.show ul > div {
   padding: 1.5rem;
   border-radius: 5px;
   margin-bottom: 1.5rem;
+  position: relative;
 }
 
 #shortener .container form input {
@@ -228,11 +233,23 @@ nav .menu.show ul > div {
   border: 3px solid white;
 }
 
+#shortener .container form small {
+  color: var(--red);
+  position: absolute;
+  bottom: 45%;
+  left: 1.5rem;
+  display: none;
+}
+
+#shortener .container form.error small {
+  display: flex;
+}
+
 #shortener .container form input.error {
   border: 3px solid var(--red);
 }
 
-#shortener .container form input small {
+#shortener .container form input.error::placeholder {
   color: var(--red);
 }
 
@@ -264,12 +281,17 @@ nav .menu.show ul > div {
   flex-direction: column;
 }
 
-#shortener .container .shortened-link .shortened-links p {
+#shortener .container .shortened-link .shortened-links .old-link {
   border-bottom: 1px solid var(--gray);
   padding-bottom: 0.4rem;
+  text-decoration: none;
 }
 
-#shortener .container .shortened-link .shortened-links a {
+#shortener .container .shortened-link .shortened-links .old-link:visited {
+  color: var(--dark-blue);
+}
+
+#shortener .container .shortened-link .shortened-links .new-link {
   color: var(--cyan);
   padding-top: 0.4rem;
 }
@@ -358,9 +380,9 @@ nav .menu.show ul > div {
 
 #call-to-action {
   background-color: var(--dark-violet);
-  background-image: url('../assets/bg-boost-mobile.svg');
+  background-image: url('../images/bg-boost-mobile.svg');
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: cover;
   background-position: right;
   color: white;
 }
@@ -539,11 +561,16 @@ footer .container .socials a:hover {
   }
 
   #shortener .container form {
-    background-image: url('../assets/bg-shorten-desktop.svg');
+    background-image: url('../images/bg-shorten-desktop.svg');
     background-size: cover;
     flex-direction: row;
     padding: 2rem 4rem;
     border-radius: 5px;
+  }
+
+  #shortener .container form small {
+    bottom: 10px;
+    left: 4rem;
   }
 
   #shortener .container form button,
@@ -565,12 +592,12 @@ footer .container .socials a:hover {
     width: 100%;
   }
 
-  #shortener .container .shortened-link .shortened-links p {
+  #shortener .container .shortened-link .shortened-links .old-link {
     border-bottom: 0;
     padding-bottom: 0;
   }
 
-  #shortener .container .shortened-link .shortened-links a {
+  #shortener .container .shortened-link .shortened-links .new-link {
     padding-top: 0;
   }
 
@@ -624,7 +651,7 @@ footer .container .socials a:hover {
   /* call-to-action */
 
   #call-to-action {
-    background-image: url('../assets/bg-boost-desktop.svg');
+    background-image: url('../images/bg-boost-desktop.svg');
   }
 
   #call-to-action .container {
@@ -654,7 +681,7 @@ footer .container .socials a:hover {
   footer .container .links {
     flex-direction: row;
     align-items: flex-start;
-    gap: 4rem;
+    gap: 2rem;
   }
 
   footer .container .links > div {

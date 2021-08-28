@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="shortcut icon"
-      href="assets/favicon-32x32.png"
+      href="./images/favicon-32x32.png"
       type="image/png"
     />
 
@@ -25,8 +25,8 @@
   <body>
     <header>
       <nav class="container">
-        <a class="logo" href="#">
-          <img src="./assets/logo.svg" alt="Logo Shortly" />
+        <a class="logo" href="/">
+          <img src="./images/logo.svg" alt="Logo Shortly" />
         </a>
         <div class="menu">
           <ul>
@@ -42,14 +42,16 @@
             </div>
           </ul>
         </div>
-        <a href="#" class="toggle"><img src="/assets/menu.svg" alt="Menu" /></a>
+        <a href="#" class="toggle"
+          ><img src="./images/menu.svg" alt="Menu"
+        /></a>
       </nav>
     </header>
     <main>
       <section id="home" class="section">
         <div class="image">
           <img
-            src="./assets/illustration-working.svg"
+            src="./images/illustration-working.svg"
             alt="Pessoa Trabalhando"
           />
         </div>
@@ -66,7 +68,7 @@
 
       <section id="shortener" class="section">
         <div class="container">
-          <form id="formShortener" name="formShortener" action="">
+          <form id="formShortener" action="/shortenerlink" method="POST">
             <input
               type="text"
               id="link"
@@ -74,15 +76,15 @@
               placeholder="Digite o link aqui..."
             />
 
-            <button class="button" type="submit" form="formShortener">
-              Encurtar
-            </button>
+            <button class="button" type="submit">Encurtar</button>
+            <small>O campo é obrigatório!</small>
           </form>
 
           <div class="shortened-link">
             <div class="shortened-links">
-              <p>Link original</p>
-              <a href="">Link Encurtado</a>
+              <a class="old-link" target="_blank" href="#">Link Resumido... </a>
+
+              <a class="new-link" target="_blank" href="#">Link encurtado </a>
             </div>
 
             <button class="button button-copy">Copiar</button>
@@ -102,7 +104,7 @@
           <div class="cards">
             <div class="card">
               <img
-                src="./assets/icon-brand-recognition.svg"
+                src="./images/icon-brand-recognition.svg"
                 alt="Reconhecimento de marca"
               />
               <h1>Reconhecimento de marca</h1>
@@ -115,7 +117,7 @@
 
             <div class="card second-card">
               <img
-                src="./assets/icon-detailed-records.svg"
+                src="./images/icon-detailed-records.svg"
                 alt="Registros Detalhados"
               />
               <h1>Registros Detalhados</h1>
@@ -128,7 +130,7 @@
 
             <div class="card third-card">
               <img
-                src="./assets/icon-fully-customizable.svg"
+                src="./images/icon-fully-customizable.svg"
                 alt="Totalmente personalizável"
               />
               <h1>Totalmente personalizável</h1>
@@ -176,19 +178,20 @@
           </div>
           <div class="socials">
             <a href=""
-              ><img src="./assets/icon-facebook.svg" alt="Facebook"
+              ><img src="./images/icon-facebook.svg" alt="Facebook"
             /></a>
-            <a href=""><img src="./assets/icon-twitter.svg" alt="Twitter" /></a>
+            <a href=""><img src="./images/icon-twitter.svg" alt="Twitter" /></a>
             <a href=""
-              ><img src="./assets/icon-pinterest.svg" alt="Pinterest"
+              ><img src="./images/icon-pinterest.svg" alt="Pinterest"
             /></a>
             <a href=""
-              ><img src="./assets/icon-instagram.svg" alt="Instagram"
+              ><img src="./images/icon-instagram.svg" alt="Instagram"
             /></a>
           </div>
         </div>
       </footer>
     </main>
+
     <script src="./scripts/script.js"></script>
   </body>
 </html>
