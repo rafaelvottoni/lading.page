@@ -31,7 +31,7 @@ form.addEventListener('submit', async event => {
       }
       showLinks()
     } catch {
-      error('Digite um link Válido!')
+      error('Digite um link válido!')
     }
   }
   pageHtml.style.cursor = 'default'
