@@ -253,6 +253,18 @@ nav .menu.show ul > div {
   color: var(--red);
 }
 
+#shortener .container .shortened-link {
+  padding: 0.8rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 0.8rem;
+  background-color: white;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
 #shortener .container form button,
 #shortener .container .shortened-link button {
   border-radius: 5px;
@@ -265,17 +277,6 @@ nav .menu.show ul > div {
   width: 100%;
 }
 
-#shortener .container .shortened-link {
-  padding: 0.8rem;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  gap: 0.8rem;
-  background-color: white;
-  border-radius: 5px;
-}
-
 #shortener .container .shortened-link .shortened-links {
   display: flex;
   flex-direction: column;
@@ -285,6 +286,7 @@ nav .menu.show ul > div {
   border-bottom: 1px solid var(--gray);
   padding-bottom: 0.4rem;
   text-decoration: none;
+  overflow: hidden;
 }
 
 #shortener .container .shortened-link .shortened-links .old-link:visited {
@@ -294,6 +296,7 @@ nav .menu.show ul > div {
 #shortener .container .shortened-link .shortened-links .new-link {
   color: var(--cyan);
   padding-top: 0.4rem;
+  overflow: hidden;
 }
 
 /* Statistics */
@@ -595,10 +598,14 @@ footer .container .socials a:hover {
   #shortener .container .shortened-link .shortened-links .old-link {
     border-bottom: 0;
     padding-bottom: 0;
+    max-width: 50%;
+    overflow: hidden;
   }
 
   #shortener .container .shortened-link .shortened-links .new-link {
     padding-top: 0;
+    max-width: 50%;
+    overflow: hidden;
   }
 
   #shortener .container .shortened-link button {

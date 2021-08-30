@@ -9,16 +9,13 @@ toggle.addEventListener('click', () => {
 const form = document.querySelector('form')
 const input = document.querySelector('#link')
 
-function error(message) {
-  input.value = ''
-  form.classList.add('error')
-  input.classList.add('error')
-  document.querySelector('.error-message').innerHTML = message
-}
+//array links
+let links
 
 form.addEventListener('submit', async event => {
   let pageHtml = document.querySelector('body')
   pageHtml.style.cursor = 'wait'
+  input.style.opacity = '0.5'
   let linkToShort = input.value
   let url = `https://api.shrtco.de/v2/shorten?url=${linkToShort}`
 
@@ -28,15 +25,27 @@ form.addEventListener('submit', async event => {
   } else {
     event.preventDefault()
     try {
-      await shortenLink(url, linkToShort)
+      const newLink = await shortenLink(url)
+      if (newLink) {
+        saveLinksInLocalStorage(linkToShort, newLink)
+      }
+      showLinks()
     } catch {
-      error('Digite um link válido!')
+      error('Digite um link Válido!')
     }
   }
   pageHtml.style.cursor = 'default'
+  input.style.opacity = '1'
 })
 
-async function shortenLink(linkAPI, linkToShort) {
+function error(message) {
+  input.value = ''
+  form.classList.add('error')
+  input.classList.add('error')
+  document.querySelector('.error-message').innerHTML = message
+}
+
+async function shortenLink(linkAPI) {
   const data = await fetch(linkAPI)
     .then(res => {
       return res.json()
@@ -47,21 +56,75 @@ async function shortenLink(linkAPI, linkToShort) {
 
   const shortenerLink = data.result.full_short_link
 
-  if (!data.ok) {
-    error('Digite um link Válido')
-  } else {
-    const shortenerLinkArea = document.querySelector('.shortened-link')
-
-    shortenerLinkArea.innerHTML = `
-      <div class="shortened-links">
-        <a class="old-link" target="_blank" href="${linkToShort}">${linkToShort.substr(
-      0,
-      30
-    )}...</a>
-        <a class="new-link" target="_blank" href="${shortenerLink}">${shortenerLink}</a>
-    </div>
-
-    <button class="button button-copy">Copiar</button>
-     `
-  }
+  return shortenerLink
 }
+
+function saveLinksInLocalStorage(oldLink, newLink) {
+  if (localStorage.getItem('links') === null) {
+    links = []
+  } else {
+    links = JSON.parse(localStorage.getItem('links'))
+  }
+
+  links.unshift({ oldLink: oldLink, newLink: newLink })
+  localStorage.setItem('links', JSON.stringify(links))
+}
+
+function showLinks() {
+  if (localStorage.getItem('links') === null) {
+    links = []
+  } else {
+    links = JSON.parse(localStorage.getItem('links'))
+  }
+
+  //remove links html
+  const isLinksInHTML = document.querySelectorAll('.shortened-link')
+  if (isLinksInHTML) {
+    isLinksInHTML.forEach(link => {
+      link.remove()
+    })
+  }
+
+  //add links html
+  links.forEach(link => {
+    const shortenerLinkArea = document.querySelector('#shortener .container')
+    const divShortenedLink = document.createElement('div')
+    divShortenedLink.innerHTML = `
+    <div class="shortened-links">
+      <a class="old-link" target="_blank" href="${
+        link.oldLink
+      }">${link.oldLink.substr(0, 30)}...</a>
+      <a class="new-link" target="_blank" href="${link.newLink}">${
+      link.newLink
+    }</a>
+  </div>
+
+  <button class="button button-copy">Copiar</button>
+   `
+
+    divShortenedLink.className = 'shortened-link'
+    shortenerLinkArea.appendChild(divShortenedLink)
+  })
+}
+
+const buttonCopy = document.querySelector('#shortener .container')
+
+buttonCopy.addEventListener('click', event => {
+  const isButton = event.target.classList.contains('button-copy')
+  const button = event.target
+  if (isButton) {
+    button.style.backgroundColor = 'var(--dark-violet)'
+    button.innerText = `Copiado!`
+    setTimeout(() => {
+      button.style.backgroundColor = 'var(--cyan)'
+      button.innerText = `Copiar`
+    }, 5000)
+
+    const linkToCopy =
+      button.previousElementSibling.children[0].getAttribute('href')
+
+    navigator.clipboard.writeText(linkToCopy)
+  }
+})
+
+document.addEventListener('DOMContentLoaded', showLinks)
