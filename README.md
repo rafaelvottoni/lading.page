@@ -24,8 +24,9 @@ Resultado
 <br>
 
 <p align="center" float="left">
-<img src=".github/site4.png" width="49%" height="120px" alt="Erro input vazio"> 
-<img src=".github/site5.png" width="49%" height="120px"  alt="Erro requisição">
+<img src=".github/site4.png" width="30%" height="120px" alt="Erro input vazio"> 
+<img src=".github/site5.png" width="30%" height="120px"  alt="Erro requisição">
+<br>
 Erros (input vazio ou erro na requisição)
 </p>
 <br>
