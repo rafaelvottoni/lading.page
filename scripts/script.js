@@ -121,7 +121,7 @@ buttonCopy.addEventListener('click', event => {
     }, 5000)
 
     const linkToCopy =
-      button.previousElementSibling.children[0].getAttribute('href')
+      button.previousElementSibling.children[1].getAttribute('href')
 
     navigator.clipboard.writeText(linkToCopy)
   }
